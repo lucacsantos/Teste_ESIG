@@ -1,0 +1,18 @@
+//criei uma procedure para preencher a tabela pessoa_salario. 
+create procedure proce_pessoa_salario as
+begin 
+truncate table pessoa_salario //limpar a tabela 
+insert into pessoa_salario(pessoa_id, pessoa_nome, cargo_nome, salario)//atualizar a tabela com os novos valores
+select 
+p.ID,
+p.Nome,
+c.Nome,
+c.Salario
+from Pessoa p
+join Cargo c on p.Cargo_ID = c.ID;
+ SELECT * FROM pessoa_salario;
+end;
+
+exec proce_pessoa_salario;
+
+----------------------------
